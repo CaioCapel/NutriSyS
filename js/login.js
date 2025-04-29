@@ -9,11 +9,11 @@ const particles = [];
 const numParticles = 50;
 
 const fruitImages = [
-  '/IMG/apple.png',
-  '/IMG/banana.png',
-  '/IMG/uva.png',
-  '/IMG/morango.png',
-  '/IMG/abacate.png'
+  'img/apple.png',
+  'img/banana.png',
+  'img/uva.png',
+  'img/morango.png',
+  'img/abacate.png'
 ];
 
 
