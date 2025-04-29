@@ -1,0 +1,136 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgba(46, 125, 50, 0.219); /* verde com 30% de opacidade */
+            padding: 30px;
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh; /* adiciona altura mínima para o fundo aparecer */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background: #2e7d32;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.459);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .logo {
+            width: 200px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        .menu a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            color: #2e7d32;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .logout {
+            text-align: center;
+        }
+
+        .logout a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            margin-left: 260px;
+            /* Espaço para a sidebar */
+            width: calc(100% - 240px);
+            /* Ajusta a largura para ocupar o restante da tela */
+            padding: 30px;
+        }
+
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        /* Lista de Pacientes */
+        .patients-list {
+            margin-top: 20px;
+
+        }
+
+        .patient-item {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.459);
+        }
+
+        .expand-btn {
+            background: none;
+            border: none;
+            color: #2e7d32;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: left;
+            cursor: pointer;
+            padding: 10px 0;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .expand-btn:hover {
+            color: #fff;
+        }
+
+        .expanded-info {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .patient-item.open .expanded-info {
+            display: block;
+        }
+
+        .patient-info p {
+            margin-bottom: 8px;
+        }
+
+        button {
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }

@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', Arial, sans-serif;
+  /* Fonte Poppins */
+  animation: gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #d0f4e5, #a8e6cf, #dcedc1, #b2dfdb);
+  background-size: 400% 400%;
+  overflow: hidden;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 900px;
+  display: flex;
+  overflow: hidden;
+}
+
+.login-side,
+.info-side {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-side {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.login-side img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.login-side h2 {
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.login-side .slogan {
+  font-size: 16px;
+  color: #4caf50;
+  margin-bottom: 24px;
+}
+
+.login-side input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #c8e6c9;
+  border-radius: 8px;
+  background-color: #f1f8e9;
+  font-size: 15px;
+}
+
+.login-side button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #66bb6a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-side button:hover {
+  background-color: #57a05a;
+}
+
+.login-side p {
+  font-size: 14px;
+  margin-top: 16px;
+  color: #666;
+}
+
+.login-side p a {
+  color: #388e3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-side p a:hover {
+  text-decoration: underline;
+}
+
+.info-side {
+  background-color: rgba(102, 187, 106, 0.15);
+  color: #2e7d32;
+  text-align: center;
+}
+
+.info-side h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.info-side p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #2e7d32;
+}
+
+.info-side button {
+  background: none;
+  border: 2px solid #2e7d32;
+  color: #2e7d32;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.info-side button:hover {
+  background: #2e7d32;
+  color: white;
+}

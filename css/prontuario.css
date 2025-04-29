@@ -1,0 +1,109 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    body {
+        background-color: rgba(46, 125, 50, 0.219); /* verde com 30% de opacidade */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .content {
+        max-width: 900px;
+        width: 100%;
+        padding: 40px;
+        background: #fff;
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.459);
+        overflow-y: auto;
+        min-height: 80vh;
+    }
+
+    h2 {
+        color: #2e7d32;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    h3 {
+        color: #388e3c;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .patient-info,
+    .medical-history,
+    .plan,
+    .attachments,
+    .padrao-alimentar {
+        margin-bottom: 40px;
+    }
+
+    p {
+        font-size: 16px;
+        margin: 8px 0;
+    }
+
+    button {
+        background-color: #66bb6a;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-right: 10px;
+    }
+
+    button:hover {
+        background-color: #57a05a;
+    }
+
+    .attachments ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .attachments ul li {
+        margin: 8px 0;
+    }
+
+    .attachments a {
+        text-decoration: none;
+        color: #388e3c;
+    }
+
+    .attachments a:hover {
+        color: #66bb6a;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    /* Estilo para o botão de voltar */
+    .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #388e3c;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+        background-color: #2e7d32;
+    }
