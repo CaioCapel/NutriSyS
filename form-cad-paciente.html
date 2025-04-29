@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Paciente</title>
+  <link rel="stylesheet" href="css/form-cad-paciente.css">
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <div>
+      <img class="logo" src="img/logo.png" alt="">
+      <div class="menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacientes.html">Pacientes</a>
+        <a href="form-cad-paciente.html">Cadastro de Paciente</a>
+      </div>
+    </div>
+    <div class="logout">
+      <a href="login.html">Sair</a>
+    </div>
+  </div>
+
+  <h1>Cadastro de Paciente</h1>
+  <form>
+    <fieldset>
+      <legend>Informações Pessoais</legend>
+      <label>Nome:</label><input type="text">
+      <label>Data de nascimento:</label><input type="date">
+      <label>Idade:</label><input type="number">
+      <label>Gênero:</label><input type="text">
+      <label>Peso:</label><input type="number" step="any">
+      <label>Altura:</label><input type="number" step="any">
+      <label>Objetivo da consulta:</label><input type="text">
+    </fieldset>
+
+    <fieldset>
+      <legend>Histórico Clínico</legend>
+      <label>Diabetes:</label><input type="checkbox">
+      <label>Distenção Abdominal:</label><input type="checkbox">
+      <label>Hipertensão:</label><input type="checkbox">
+      <label>Pirose:</label><input type="checkbox">
+      <label>Gastrite:</label><input type="checkbox">
+      <label>Flatulência:</label><input type="checkbox">
+      <label>Dislipidemia:</label><input type="checkbox">
+      <label>Constipação:</label><input type="checkbox">
+      <label>Hipertireoidismo:</label><input type="checkbox">
+      <label>Possui alguma outra patologia?</label><textarea></textarea>
+      <label>Teve perda ou ganho de peso recente?</label><textarea></textarea>
+      <label>Fuma ou já fumou?</label><textarea></textarea>
+      <label>Faz uso de bebida alcoólica?</label><textarea></textarea>
+      <label>Pratica atividade física?</label><textarea></textarea>
+      <label>Como é a qualidade do seu sono? Dorme quantas horas?</label><textarea></textarea>
+      <label>Faz uso de medicamentos? Ou suplemento?</label><textarea></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Padrão Alimentar</legend>
+      <label>Possui alergia a algum alimento?</label><textarea></textarea>
+      <label>Quais alimentos tem aversão?</label><textarea></textarea>
+      <label>Alimentos de preferência?</label><textarea></textarea>
+      <label>Quantas refeições faz no dia? E qual delas come em maior quantidade?</label><textarea></textarea>
+      <label>Como é seu hábito intestinal?</label><textarea></textarea>
+      <label>O que costuma comer nas seguintes refeições:</label>
+      <label>Desjejum:</label><textarea></textarea>
+      <label>Lanche da manhã:</label><textarea></textarea>
+      <label>Almoço:</label><textarea></textarea>
+      <label>Lanche da tarde:</label><textarea></textarea>
+      <label>Jantar:</label><textarea></textarea>
+    </fieldset>
+
+    <fieldset>
+      <label>Observações:</label><textarea></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Descrição Plano Alimentar</legend>
+      <textarea></textarea>
+    </fieldset>
+
+    <button type="submit">Salvar Paciente</button>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Clínica Nutricional</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+  <div class="layout">
+    <div class="sidebar">
+      <div>
+        <img class="logo" src="img/logo.png" alt="">
+        <div class="menu">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="pacientes.html">Pacientes</a>
+          <a href="form-cad-paciente.html">Cadastro de Paciente</a>
+        </div>
+      </div>
+      <div class="logout">
+        <a href="login.html">Sair</a>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <h1>Bem-vinda, Dra. Camila 🍏</h1>
+
+      <!-- Cards Resumo -->
+      <div class="cards">
+        <div class="card">
+          <h2 class="number">24</h2>
+          <p>Pacientes Cadastrados</p>
+          <div class="icon">💚</div>
+        </div>
+        <div class="card">
+          <h2 class="number">4</h2>
+          <p>Pacientes sem Plano Alimentar</p>
+          <div class="icon">⚠️</div>
+        </div>
+        <div class="card">
+          <h2 class="number">3</h2>
+          <p>Consultas Realizadas no Mês Atual</p>
+          <div class="icon">📝</div>
+        </div>
+      </div>
+
+      <!-- Últimos Pacientes Cadastrados -->
+      <div class="widget">
+        <h3>Últimos Pacientes Cadastrados - <a class="ver-pacientes" href="pacientes.html">Ver todos os
+            pacientes</a></h3>
+        <ul>
+          <li>Paciente A - Cadastro realizado em 23/04</li>
+          <li>Paciente B - Cadastro realizado em 22/04</li>
+          <li>Paciente C - Cadastro realizado em 21/04</li>
+        </ul>
+      </div>
+
+      <!-- Gráfico de Pacientes por Dia -->
+      <div class="chart-container">
+        <h3>Atendimentos por Dia</h3>
+        <canvas id="pacientesChart" width="100%" height="20"></canvas>
+      </div>
+
+      <script src="js/dashboard.js"></script>
+</body>
+
+</html>

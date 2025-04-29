@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Pacientes</title>
+  <link rel="stylesheet" href="css/pacientes.css">
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div>
+      <img class="logo" src="img/logo.png" alt="Logo">
+      <div class="menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pacientes.html" class="active">Pacientes</a>
+        <a href="form-cad-paciente.html">Cadastro de Paciente</a>
+      </div>
+    </div>
+    <div class="logout">
+      <a href="login.html">Sair</a>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="main-content">
+    <h1>Visualizar Pacientes</h1>
+
+    <input type="text" id="searchBar" placeholder="🔍Pesquisar paciente..."
+      style="width: 100%; padding: 10px; margin-bottom: 10px; margin-top: 20px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px;">
+
+    <div class="patients-list">
+      <div class="patient-item">
+        <button class="expand-btn">Maria Souza - Emagrecimento</button>
+        <div class="expanded-info">
+          <div class="patient-info">
+            <p><strong>Idade:</strong> 34 anos</p>
+            <p><strong>Objetivo:</strong> Emagrecimento</p>
+            <p><strong>Última consulta:</strong> 15/04/2025</p>
+            <p><strong>Data de Cadastro:</strong> 01/01/2025</p>
+            <a href="prontuario.html">
+              <button>Ver Prontuário</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="patient-item">
+        <button class="expand-btn">João da Silva - Aumento de Massa Muscular</button>
+        <div class="expanded-info">
+          <div class="patient-info">
+            <p><strong>Idade:</strong> 45 anos</p>
+            <p><strong>Objetivo:</strong> Aumento de Massa Muscular</p>
+            <p><strong>Última consulta:</strong> 18/04/2025</p>
+            <p><strong>Data de Cadastro:</strong> 10/03/2025</p>
+            <button>Ver Prontuário</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adicionar mais pacientes conforme necessário -->
+    </div>
+  </div>
+
+  <script src="js/pacientes.js"></script>
+</body>
+
+</html>

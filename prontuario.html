@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prontuário do Paciente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="css/prontuario.css">
+</head>
+
+<body>
+
+  <!-- Botão de Voltar -->
+  <button class="back-btn" onclick="window.history.back()">Voltar</button>
+
+  <div class="content">
+    <h2>Prontuário do Paciente</h2>
+
+    <!-- Informações Pessoais -->
+    <div class="patient-info">
+      <h3>Informações Pessoais</h3>
+      <p><strong>Nome:</strong> João Silva</p>
+      <p><strong>Data de Nascimento:</strong> 01/01/1995</p>
+      <p><strong>Idade:</strong> 30 anos</p>
+      <p><strong>Gênero:</strong> Masculino</p>
+      <p><strong>Peso:</strong> 75 kg</p>
+      <p><strong>Altura:</strong> 1.75 m</p>
+      <p><strong>Objetivo da Consulta:</strong> Emagrecimento</p>
+    </div>
+
+    <!-- Histórico Clínico -->
+    <div class="medical-history">
+      <h3>Histórico Clínico</h3>
+      <p><strong>Diabetes:</strong> Não</p>
+      <p><strong>Distenção Abdominal:</strong> Não</p>
+      <p><strong>Hipertensão:</strong> Não</p>
+      <p><strong>Pirose:</strong> Não</p>
+      <p><strong>Gastrite:</strong> Sim</p>
+      <p><strong>Flatulência:</strong> Sim</p>
+      <p><strong>Dislipidemia:</strong> Não</p>
+      <p><strong>Constipação:</strong> Não</p>
+      <p><strong>Hipotireoidismo:</strong> Não</p>
+      <p><strong>Possui alguma outra patologia?</strong> Não</p>
+      <p><strong>Teve perda ou ganho de peso recente?</strong> Não</p>
+      <p><strong>Fuma ou já fumou?</strong> Não</p>
+      <p><strong>Faz uso de bebida alcoólica?</strong> Não</p>
+      <p><strong>Pratica atividade física?</strong> Não</p>
+      <p><strong>Como é a qualidade do seu sono? Dorme quantas horas?</strong> Boa, 7 Horas por dia</p>
+      <p><strong>Faz uso de medicamentos? Ou suplemento?</strong> Não</p>
+    </div>
+
+    <!-- Padrão Alimentar -->
+    <div class="padrao-alimentar">
+      <h3>Padrão Alimentar</h3>
+      <p><strong>Possui alergia a algum alimento?</strong> Não</p>
+      <p><strong>Quais alimentos tem aversão?</strong> Não</p>
+      <p><strong>Alimentos de preferência?</strong> Não</p>
+      <p><strong>Quantas refeições faz no dia? E qual delas come em maior quantidade?</strong> Não</p>
+      <p><strong>Como é seu hábito intestinal?</strong> Sim</p>
+      <p><strong>O que costuma comer nas seguintes refeições:</strong></p>
+      <p><strong>Desjejum:</strong> Não</p>
+      <p><strong>Lanche da manhã:</strong> Não</p>
+      <p><strong>Almoço:</strong> Não</p>
+      <p><strong>Lanche da Tarde:</strong> Não</p>
+      <p><strong>Jantar:</strong> Não</p>
+    </div>
+
+    <!-- Plano Alimentar -->
+    <div class="plan">
+      <h3>Observações</h3>
+      <p><strong>Nenhuma Observação</strong>
+    </div>
+
+    <!-- Plano Alimentar -->
+    <div class="plan">
+      <h3>Plano Alimentar</h3>
+      <p><strong>Plano Atual:</strong> Redução de carboidratos e aumento de proteínas.</p>
+      <button>Anexar Plano Alimentar</button>
+    </div>
+
+    <!-- Anexos -->
+    <div class="attachments">
+      <h3>Outros Anexos</h3>
+      <ul>
+        <li><a href="#">Exame de Sangue.pdf</a></li>
+        <li><a href="#">Receita Médica.pdf</a></li>
+      </ul>
+      <button>Adicionar Anexo</button>
+    </div>
+
+    <button class="btn">Salvar Alterações</button>
+    <button id="downloadPdfBtn" class="btn">Baixar Prontuário em PDF</button>
+  </div>
+
+  <script src="js/prontuario.js"></script>
+</body>
+
+</html>
