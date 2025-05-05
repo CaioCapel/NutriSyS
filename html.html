@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Pacientes</title>
+  <link rel="stylesheet" href="css/pacientes.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="foto-perfil">
+      <img src="https://via.placeholder.com/128" alt="Foto de perfil">
+    </div>
+    <p class="nome">Nome do Usuário</p>
+    <ul class="menu">
+      <li class="item-principal">
+        <i class="fas fa-home"></i> Início
+      </li>
+      <li><i class="fas fa-users"></i> Pacientes</li>
+      <li><i class="fas fa-cogs"></i> Configurações</li>
+    </ul>
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <main class="container">
+    <h2>Meus Pacientes</h2>
+    <form class="form-busca">
+      <input type="text" placeholder="Buscar Paciente" aria-label="Buscar Paciente">
+      <button type="submit" class="btn buscar">Buscar</button>
+      <button type="button" class="btn cadastrar">Cadastrar Paciente</button>
+    </form>
+
+    <section class="grid-pacientes">
+      <!-- Card de paciente (replicável) -->
+      <article class="card">
+        <img src="https://storage.googleapis.com/a1aa/image/0829f350-bfa4-4c06-0a0f-2238a97c561b.jpg" alt="Foto de paciente">
+        <div class="info">
+          <div class="detalhes">
+            <p class="nome laranja">Gustavo</p>
+            <p>21 anos</p>
+            <p>Email: gustavo@gmail.com</p>
+            <p>Tel. (11)4794-3135</p>
+            <p>Celular (11)96686-0991</p>
+          </div>
+          <div class="acoes">
+            <button class="btn dashboard">Editar</button>
+            <button class="btn perfil">
+              Ver Prontuário <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+      <!-- Repita o <article> acima para outros pacientes -->
+    </section>
+
+    <nav class="paginacao">
+      <button>&laquo;&laquo;</button>
+      <button class="ativo">1</button>
+      <button>2</button>
+      <button>&raquo;&raquo;</button>
+    </nav>
+  </main>
+</body>
+</html>

@@ -1,89 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Paciente</title>
-  <link rel="stylesheet" href="css/form-cad-paciente.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Paciente</title>
+    <link rel="stylesheet" href="css/form-cad-paciente.css">
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
-
-  <div class="sidebar">
-    <div>
-      <img class="logo" src="img/logo.png" alt="">
-      <div class="menu">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="pacientes.html">Pacientes</a>
-        <a href="form-cad-paciente.html">Cadastro de Paciente</a>
-      </div>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="foto-perfil">
+      <img src="img/logo-shortcut.png" alt="" />
     </div>
-    <div class="logout">
-      <a href="login.html">Sair</a>
-    </div>
-  </div>
+    <p class="nome">Dra. Camila Alves</p>
+    <nav>
+      <ul class="menu">
+        <li class="item-principal">
+          <i class="fas fa-user-injured"></i>PACIENTES
+        </li>
+        <li>
+          <a href="form-cad-paciente.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-plus-circle"></i>
+            Novo Paciente
+          </a>
+        </li>        
+        <li>
+          <a href="pacientes.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-search"></i> Buscar Paciente
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 
-  <h1>Cadastro de Paciente</h1>
-  <form>
-    <fieldset>
-      <legend>Informações Pessoais</legend>
-      <label>Nome:</label><input type="text">
-      <label>Data de nascimento:</label><input type="date">
-      <label>Idade:</label><input type="number">
-      <label>Gênero:</label><input type="text">
-      <label>Peso:</label><input type="number" step="any">
-      <label>Altura:</label><input type="number" step="any">
-      <label>Objetivo da consulta:</label><input type="text">
-    </fieldset>
+  <main class="conteudo">
+    <header class="topbar">
+        <div class="esquerda">
+          <button class="icone-btn"><i class="fas fa-bars"></i></button>
+          <div class="campo-pesquisa">
+            <i class="fas fa-search"></i>
+            <input type="search" placeholder="Procurar Paciente..." />
+          </div>
+        </div>
+        <div class="direita">
+          <button class="icone-btn notificacao">
+            <i class="fas fa-bell"></i>
+            <span class="badge">7</span>
+          </button>
+          <button class="icone-btn"><i class="far fa-calendar-alt"></i></button>
+          <button class="icone-btn"><i class="fas fa-ellipsis-v"></i></button>
+          <button class="icone-btn" id="toggleDarkMode"><i class="fas fa-moon"></i></button>
+        </div>
+      </header>
+        <h1>Cadastro de Paciente</h1>
+        <form>
+            <fieldset>
+                <legend>Informações Pessoais</legend>
+                <label>Nome:</label><input type="text">
+                <label>Data de nascimento:</label><input type="date">
+                <label>Idade:</label><input type="number">
+                <label for="genero">Gênero:</label>
+                <select id="genero" name="genero">
+                  <option value="">Selecione</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="nao-informado">Prefiro não informar</option>
+                  <option value="outro">Outro</option>
+                </select>               
+                <label>Peso:</label><input type="number" step="any">
+                <label>Altura:</label><input type="number" step="any">
+                <label for="objetivo">Objetivo da consulta:</label>
+                <select id="objetivo" name="objetivo">
+                  <option value="">Selecione</option>
+                  <option value="emagrecimento">Emagrecimento</option>
+                  <option value="ganho-de-massa">Ganho de massa muscular</option>
+                  <option value="reeducacao-alimentar">Reeducação alimentar</option>
+                  <option value="melhora-saude">Melhorar saúde geral</option>
+                  <option value="outro">Outro</option>
+                </select>
+            </fieldset>
 
-    <fieldset>
-      <legend>Histórico Clínico</legend>
-      <label>Diabetes:</label><input type="checkbox">
-      <label>Distenção Abdominal:</label><input type="checkbox">
-      <label>Hipertensão:</label><input type="checkbox">
-      <label>Pirose:</label><input type="checkbox">
-      <label>Gastrite:</label><input type="checkbox">
-      <label>Flatulência:</label><input type="checkbox">
-      <label>Dislipidemia:</label><input type="checkbox">
-      <label>Constipação:</label><input type="checkbox">
-      <label>Hipertireoidismo:</label><input type="checkbox">
-      <label>Possui alguma outra patologia?</label><textarea></textarea>
-      <label>Teve perda ou ganho de peso recente?</label><textarea></textarea>
-      <label>Fuma ou já fumou?</label><textarea></textarea>
-      <label>Faz uso de bebida alcoólica?</label><textarea></textarea>
-      <label>Pratica atividade física?</label><textarea></textarea>
-      <label>Como é a qualidade do seu sono? Dorme quantas horas?</label><textarea></textarea>
-      <label>Faz uso de medicamentos? Ou suplemento?</label><textarea></textarea>
-    </fieldset>
+            <fieldset>
+                <legend>Histórico Clínico</legend>
+                <label><input type="checkbox"> Diabetes</label>
+                <label><input type="checkbox"> Distenção Abdominal</label>
+                <label><input type="checkbox"> Hipertensão</label>
+                <label><input type="checkbox"> Pirose</label>
+                <label><input type="checkbox"> Gastrite</label>
+                <label><input type="checkbox"> Flatulência</label>
+                <label><input type="checkbox"> Dislipidemia</label>
+                <label><input type="checkbox"> Constipação</label>
+                <label><input type="checkbox"> Hipertireoidismo</label>
+                <label>Possui alguma outra patologia?</label><textarea></textarea>
+                <label>Teve perda ou ganho de peso recente?</label><textarea></textarea>
+                <label>Fuma ou já fumou?</label><textarea></textarea>
+                <label>Faz uso de bebida alcoólica?</label><textarea></textarea>
+                <label>Pratica atividade física?</label><textarea></textarea>
+                <label>Como é a qualidade do seu sono? Dorme quantas horas?</label><textarea></textarea>
+                <label>Faz uso de medicamentos? Ou suplemento?</label><textarea></textarea>
+            </fieldset>
 
-    <fieldset>
-      <legend>Padrão Alimentar</legend>
-      <label>Possui alergia a algum alimento?</label><textarea></textarea>
-      <label>Quais alimentos tem aversão?</label><textarea></textarea>
-      <label>Alimentos de preferência?</label><textarea></textarea>
-      <label>Quantas refeições faz no dia? E qual delas come em maior quantidade?</label><textarea></textarea>
-      <label>Como é seu hábito intestinal?</label><textarea></textarea>
-      <label>O que costuma comer nas seguintes refeições:</label>
-      <label>Desjejum:</label><textarea></textarea>
-      <label>Lanche da manhã:</label><textarea></textarea>
-      <label>Almoço:</label><textarea></textarea>
-      <label>Lanche da tarde:</label><textarea></textarea>
-      <label>Jantar:</label><textarea></textarea>
-    </fieldset>
+            <fieldset>
+                <legend>Padrão Alimentar</legend>
+                <label>Possui alergia a algum alimento?</label><textarea></textarea>
+                <label>Quais alimentos tem aversão?</label><textarea></textarea>
+                <label>Alimentos de preferência?</label><textarea></textarea>
+                <label>Quantas refeições faz no dia? E qual delas come em maior quantidade?</label><textarea></textarea>
+                <label>Como é seu hábito intestinal?</label><textarea></textarea>
+                <label>O que costuma comer nas seguintes refeições:</label>
+                <label>Desjejum:</label><textarea></textarea>
+                <label>Lanche da manhã:</label><textarea></textarea>
+                <label>Almoço:</label><textarea></textarea>
+                <label>Lanche da tarde:</label><textarea></textarea>
+                <label>Jantar:</label><textarea></textarea>
+            </fieldset>
 
-    <fieldset>
-      <legend>Observações:</legend>
-      <textarea></textarea>
-    </fieldset>
+            <fieldset>
+                <legend>Observações:</legend>
+                <textarea></textarea>
+            </fieldset>
 
-    <fieldset>
-      <legend>Descrição Plano Alimentar</legend>
-      <textarea></textarea>
-    </fieldset>
+            <fieldset>
+                <legend>Descrição Plano Alimentar</legend>
+                <textarea></textarea>
+            </fieldset>
 
-    <button type="submit">Salvar Paciente</button>
-  </form>
+            <button class="btn" type="submit">Salvar Paciente</button>
+        </form>
+    </main>
 </body>
-
 </html>

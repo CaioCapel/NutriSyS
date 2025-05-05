@@ -1,70 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visualizar Pacientes</title>
+  <title>Meus Pacientes</title>
   <link rel="stylesheet" href="css/pacientes.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
-
 <body>
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div>
-      <img class="logo" src="img/logo.png" alt="Logo">
-      <div class="menu">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="pacientes.html" class="active">Pacientes</a>
-        <a href="form-cad-paciente.html">Cadastro de Paciente</a>
-      </div>
+   <!-- Sidebar -->
+   <aside class="sidebar">
+    <div class="foto-perfil">
+      <img src="img/logo-shortcut.png" alt="" />
     </div>
-    <div class="logout">
-      <a href="login.html">Sair</a>
-    </div>
-  </div>
+    <p class="nome">Dra. Camila Alves</p>
+    <nav>
+      <ul class="menu">
+        <li class="item-principal">
+          <i class="fas fa-user-injured"></i>PACIENTES
+        </li>
+        <li>
+          <a href="form-cad-paciente.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-plus-circle"></i>
+            Novo Paciente
+          </a>
+        </li>        
+        <li>
+          <a href="pacientes.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-search"></i> Buscar Paciente
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 
-  <!-- Conteúdo Principal -->
-  <div class="main-content">
-    <h1>Visualizar Pacientes</h1>
-
-    <input type="text" id="searchBar" placeholder="🔍Pesquisar paciente..."
-      style="width: 100%; padding: 10px; margin-bottom: 10px; margin-top: 20px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px;">
-
-    <div class="patients-list">
-      <div class="patient-item">
-        <button class="expand-btn">Maria Souza - Emagrecimento</button>
-        <div class="expanded-info">
-          <div class="patient-info">
-            <p><strong>Idade:</strong> 34 anos</p>
-            <p><strong>Objetivo:</strong> Emagrecimento</p>
-            <p><strong>Última consulta:</strong> 15/04/2025</p>
-            <p><strong>Data de Cadastro:</strong> 01/01/2025</p>
-            <a href="prontuario.html">
-              <button>Ver Prontuário</button>
-          </div>
+  <main class="conteudo">
+    <header class="topbar">
+      <div class="esquerda">
+        <button class="icone-btn"><i class="fas fa-bars"></i></button>
+        <div class="campo-pesquisa">
+          <i class="fas fa-search"></i>
+          <input type="search" placeholder="Procurar Paciente..." />
         </div>
       </div>
+      <div class="direita">
+        <button class="icone-btn notificacao">
+          <i class="fas fa-bell"></i>
+          <span class="badge">7</span>
+        </button>
+        <button class="icone-btn"><i class="far fa-calendar-alt"></i></button>
+        <button class="icone-btn"><i class="fas fa-ellipsis-v"></i></button>
+        <button class="icone-btn" id="toggleDarkMode"><i class="fas fa-moon"></i></button>
+      </div>
+    </header>
 
-      <div class="patient-item">
-        <button class="expand-btn">João da Silva - Aumento de Massa Muscular</button>
-        <div class="expanded-info">
-          <div class="patient-info">
-            <p><strong>Idade:</strong> 45 anos</p>
-            <p><strong>Objetivo:</strong> Aumento de Massa Muscular</p>
-            <p><strong>Última consulta:</strong> 18/04/2025</p>
-            <p><strong>Data de Cadastro:</strong> 10/03/2025</p>
-            <button>Ver Prontuário</button>
+    <h1>Meus Pacientes</h1>
+    <form class="form-busca">
+      <input type="text" placeholder="Buscar Paciente" aria-label="Buscar Paciente">
+      <button type="submit" class="btn buscar">Buscar</button>
+      <button type="button" class="btn cadastrar">Cadastrar Paciente</button>
+    </form>
+
+    <section class="grid-pacientes">
+      <!-- Card de paciente (replicável) -->
+      <article class="card">
+        <img src="https://storage.googleapis.com/a1aa/image/0829f350-bfa4-4c06-0a0f-2238a97c561b.jpg" alt="Foto de paciente">
+        <div class="info">
+          <div class="detalhes">
+            <p class="nome laranja">Gustavo</p>
+            <p>21 anos</p>
+            <p>Email: gustavo@gmail.com</p>
+            <p>Tel. (11)4794-3135</p>
+            <p>Celular (11)96686-0991</p>
+          </div>
+          <div class="acoes">
+            <a href="form-cad-paciente.html">
+            <button class="btn dashboard">Editar</button>
+          </a>
+            <button class="btn perfil">
+              Ver Prontuário <i class="fas fa-caret-down"></i>
+            </button>
           </div>
         </div>
-      </div>
+      </article>
+      <article class="card">
+        <img src="https://storage.googleapis.com/a1aa/image/0829f350-bfa4-4c06-0a0f-2238a97c561b.jpg" alt="Foto de paciente">
+        <div class="info">
+          <div class="detalhes">
+            <p class="nome laranja">Gustavo</p>
+            <p>21 anos</p>
+            <p>Email: gustavo@gmail.com</p>
+            <p>Tel. (11)4794-3135</p>
+            <p>Celular (11)96686-0991</p>
+          </div>
+          <div class="acoes">
+            <button class="btn dashboard">Editar</button>
+            <button class="btn perfil">
+              Ver Prontuário <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://storage.googleapis.com/a1aa/image/0829f350-bfa4-4c06-0a0f-2238a97c561b.jpg" alt="Foto de paciente">
+        <div class="info">
+          <div class="detalhes">
+            <p class="nome laranja">Gustavo</p>
+            <p>21 anos</p>
+            <p>Email: gustavo@gmail.com</p>
+            <p>Tel. (11)4794-3135</p>
+            <p>Celular (11)96686-0991</p>
+          </div>
+          <div class="acoes">
+            <button class="btn dashboard">Editar</button>
+            <button class="btn perfil">
+              Ver Prontuário <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://storage.googleapis.com/a1aa/image/0829f350-bfa4-4c06-0a0f-2238a97c561b.jpg" alt="Foto de paciente">
+        <div class="info">
+          <div class="detalhes">
+            <p class="nome laranja">Gustavo</p>
+            <p>21 anos</p>
+            <p>Email: gustavo@gmail.com</p>
+            <p>Tel. (11)4794-3135</p>
+            <p>Celular (11)96686-0991</p>
+          </div>
+          <div class="acoes">
+            <button class="btn dashboard">Editar</button>
+            <button class="btn perfil">
+              Ver Prontuário <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://storage.googleapis.com/a1aa/image/0829f350-bfa4-4c06-0a0f-2238a97c561b.jpg" alt="Foto de paciente">
+        <div class="info">
+          <div class="detalhes">
+            <p class="nome laranja">Gustavo</p>
+            <p>21 anos</p>
+            <p>Email: gustavo@gmail.com</p>
+            <p>Tel. (11)4794-3135</p>
+            <p>Celular (11)96686-0991</p>
+          </div>
+          <div class="acoes">
+            <button class="btn dashboard">Editar</button>
+            <button class="btn perfil">
+              Ver Prontuário <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://storage.googleapis.com/a1aa/image/0829f350-bfa4-4c06-0a0f-2238a97c561b.jpg" alt="Foto de paciente">
+        <div class="info">
+          <div class="detalhes">
+            <p class="nome laranja">Gustavo</p>
+            <p>21 anos</p>
+            <p>Email: gustavo@gmail.com</p>
+            <p>Tel. (11)4794-3135</p>
+            <p>Celular (11)96686-0991</p>
+          </div>
+          <div class="acoes">
+            <button class="btn dashboard">Editar</button>
+            <button class="btn perfil">
+              Ver Prontuário <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+        </div>
+      </article>
 
-      <!-- Adicionar mais pacientes conforme necessário -->
-    </div>
-  </div>
+      <!-- Repita o <article> acima para outros pacientes -->
+    </section>
 
-  <script src="js/pacientes.js"></script>
+    <nav class="paginacao">
+      <button>&laquo;&laquo;</button>
+      <button class="ativo">1</button>
+      <button>2</button>
+      <button>&raquo;&raquo;</button>
+    </nav>
+  </main>
 </body>
-
 </html>
