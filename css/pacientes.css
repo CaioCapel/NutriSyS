@@ -227,12 +227,12 @@ body {
     background-color: #6aa636;
 }
 
-.btn.excluir {
+.btn-excluir {
     background-color: #f44336; /* Vermelho */
     color: white;
 }
 
-.btn.excluir:hover {
+.btn-excluir:hover {
     background-color: #e53935; /* Vermelho mais escuro */
 }
 
