@@ -1,33 +1,298 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/*=============== FONTES DO GOOGLE ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIÁVEIS CSS ===============*/
+:root {
+  /*========== Cores ==========*/
+  /*Modo de cor HSL (matiz, saturação, luminosidade)*/
+  --first-color: #1b5e20;
+  --first-color-alt: #2e7d32;
+  --title-color: hsl(145, 75%, 24%);
+  --white-color: hsl(0, 0%, 100%);
+  --text-color: hsl(220, 15%, 66%);
+  --body-color: rgba(216, 233, 216, 0.89);
+  --container-color: hsl(220, 50%, 97%);
+
+  /*========== Fonte e tipografia ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", system-ui;
+  --big-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --tiny-font-size: .688rem;
+
+  /*========== Peso da fonte ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== Índice z ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-  font-family: 'Poppins', Arial, sans-serif;
-  /* Fonte Poppins */
-  animation: gradient 15s ease infinite;
-  background: linear-gradient(-45deg, #d0f4e5, #a8e6cf, #dcedc1, #b2dfdb);
-  background-size: 400% 400%;
+/*========== Tipografia responsiva ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --big-font-size: 3rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --tiny-font-size: .75rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
 
-  50% {
-    background-position: 100% 50%;
-  }
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
 
-  100% {
-    background-position: 0% 50%;
-  }
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width:100%;
+  height: auto;
+}
+
+/*=============== CLASSES REUTILIZÁVEIS ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/*=============== LOGIN  ===============*/
+.login {
+  position: relative;
+  height: 100vh;
+  align-items: center;
+  overflow: hidden;
+}
+
+.login__blob {
+  display: none;
+}
+
+.login__title {
+  font-size: var(--big-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login__box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--container-color);
+  border-radius: 1rem;
+}
+
+.login__input {
+  background: none;
+  width: 100%;
+  padding: 1.5rem 2.5rem 1.5rem 1.25rem;
+  font-weight: var(--font-semi-bold);
+  border: 3px solid transparent;
+  border-radius: 1rem;
+  z-index: 1;
+  transition: border-color .4s;
+}
+
+.login__input:autofill {
+  transition: background-color 6000s, color 6000s;
+}
+
+.login__label {
+  position: absolute;
+  left: 1.25rem;
+  font-weight: var(--font-semi-bold);
+  transition: transform .4s, font-size .4s, color .4s;
+}
+
+.login__icon {
+  position: absolute;
+  right: 1rem;
+  font-size: 1.25rem;
+  transition: color .4s;
+}
+
+.login__password {
+  cursor: pointer;
+  z-index: 10;
+}
+
+.login__forgot {
+  display: block;
+  width: max-content;
+  margin: 1rem 0 0 auto;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--text-color);
+  transition: color .4s;
+}
+
+.login__forgot:hover {
+  color: var(--first-color);
+}
+
+.login__button {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+  padding-block: 1.5rem;
+  border-radius: 4rem;
+  margin-block: 2rem;
+  cursor: pointer;
+  transition: background-color .4s, box-shadow .4s;
+}
+
+.login__button:hover {
+  background-color: var(--first-color-alt);
+  box-shadow: 0 8px 24px hsla(208, 92%, 32%, .3);
+}
+
+.login__social {
+  margin-bottom: 2rem;
+}
+
+.login__social-title {
+  text-align: center;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 1rem;
+}
+
+.login__social-img {
+  width: 1rem;
+}
+
+.login__social-links {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.5rem;
+}
+
+.login__social-link {
+  width: 32px;
+  height: 32px;
+  background-color: var(--body-color);
+  box-shadow: 0 4px 8px hsla(0, 0%, 0%, .1);
+  border-radius: .5rem;
+  display: grid;
+  place-items: center;
+  transition: transform .4s;
+}
+
+.login__social-link:hover {
+  transform: translateY(-.25rem);
+}
+
+.login__switch {
+  text-align: center;
+  font-size: var(--small-font-size);
+}
+
+.login__switch button {
+  background: none;
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  cursor: pointer;
+  transition: color .4s;
+}
+
+.login__switch button:hover {
+  color: var(--first-color-alt);
+}
+
+.login__access, 
+.login__register {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transition: transform .4s, opacity .4s .1s;
+}
+
+.login__register {
+  transform: translateX(15rem);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Quando o input recebe foco, move o rótulo para cima */
+.login__input:focus ~ .login__label {
+  transform: translateY(-12px);
+  font-size: var(--tiny-font-size);
+}
+
+.login__input:focus {
+  padding-block: 2rem 1rem;
+}
+
+/* Quando o input não está vazio e não está em foco, mantém o rótulo acima */
+.login__input:not(:placeholder-shown).login__input:not(:focus) ~ .login__label {
+  transform: translateY(-12px);
+  font-size: var(--tiny-font-size);
+}
+
+.login__input:not(:placeholder-shown).login__input:not(:focus) {
+  padding-block: 2rem 1rem;
+}
+
+/* Cor da borda ao focar no input */
+.login__input:focus {
+  border-color: var(--first-color);
+}
+
+.login__input:focus ~ .login__label,
+.login__input:focus ~ .login__icon {
+  color: var(--first-color);
+}
+
+/* Mostrar ou esconder login e criar conta */
+.active .login__access {
+  transform: translateX(15rem);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.active .login__register {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: initial;
 }
 
 canvas {
@@ -37,130 +302,67 @@ canvas {
   z-index: 0;
 }
 
-.container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.box {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(6px);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 900px;
-  display: flex;
-  overflow: hidden;
-}
-
-.login-side,
-.info-side {
-  flex: 1;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-side {
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.login-side img {
-  width: 100%;
+.logo {
+  display: block;
+  margin: 1px auto;
+  width: 420px;
   height: auto;
-  margin-bottom: 16px;
 }
 
-.login-side h2 {
-  color: #2e7d32;
-  margin-bottom: 8px;
+/*=============== PONTOS DE QUEBRA (RESPONSIVIDADE) ===============*/
+/* Para dispositivos pequenos */
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 1rem;
+  }
 }
 
-.login-side .slogan {
-  font-size: 16px;
-  color: #4caf50;
-  margin-bottom: 24px;
+/* Para dispositivos médios */
+@media screen and (min-width: 540px) {
+  .login__area {
+    width: 380px;
+    margin-inline: auto;
+  }
 }
 
-.login-side input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 2px solid #c8e6c9;
-  border-radius: 8px;
-  background-color: #f1f8e9;
-  font-size: 15px;
+@media screen and (min-width: 350px) and (max-height: 600px) {
+  .login {
+    height: 760px;
+  }
 }
 
-.login-side button {
-  width: 100%;
-  margin-top: 16px;
-  padding: 12px;
-  background-color: #66bb6a;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+/* Para dispositivos grandes */
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
 
-.login-side button:hover {
-  background-color: #57a05a;
-}
-
-.login-side p {
-  font-size: 14px;
-  margin-top: 16px;
-  color: #666;
-}
-
-.login-side p a {
-  color: #388e3c;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.login-side p a:hover {
-  text-decoration: underline;
-}
-
-.info-side {
-  background-color: rgba(102, 187, 106, 0.15);
-  color: #2e7d32;
-  text-align: center;
-}
-
-.info-side h2 {
-  font-size: 28px;
-  margin-bottom: 16px;
-}
-
-.info-side p {
-  font-size: 16px;
-  margin-bottom: 24px;
-  color: #2e7d32;
-}
-
-.info-side button {
-  background: none;
-  border: 2px solid #2e7d32;
-  color: #2e7d32;
-  padding: 10px 20px;
-  font-size: 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.info-side button:hover {
-  background: #2e7d32;
-  color: white;
+  .login__area {
+    width: 460px;
+    margin: initial;
+  }
+  .login__access, 
+  .login__register {
+    width: 600px;
+  }
+  .login__title {
+    text-align: initial;
+    margin-bottom: 3rem;
+  }
+  .login__button {
+    margin-bottom: 3rem;
+  }
+  .login__group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .login__blob {
+    display: block;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .login__img {
+    transform: translate(0rem, 0rem);
+  }
 }
