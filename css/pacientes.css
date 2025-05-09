@@ -249,6 +249,28 @@ body {
     background-color: #155ab6;
 }
 
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #4CAF50; /* verde */
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 36px;
+  text-align: center;
+  line-height: 60px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+.fab:hover {
+  background-color: #2e7d32;
+}
+
+
 .paginacao {
     margin-top: 2rem;
     display: flex;
@@ -277,6 +299,40 @@ body {
     color: white;
     border-color: #1a73e8;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  font-family: Roboto, sans-serif;
+}
+
+.pagination button {
+  padding: 0.5rem 1.2rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination button:hover{
+    background-color: #2e7d32;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
 
 @media (max-width: 768px) {
   .grid-pacientes{
