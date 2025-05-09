@@ -6,86 +6,9 @@ body {
     background-color: #e6e7e5;
   }
   
-  /* Dark Mode */
-  body.dark {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
+ 
   
-  /* Sidebar */
-  .sidebar {
-    width: 200px;
-    background-color: #2a9d8f; /* verde */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 10px;
-    height: 100vh;
-    position: fixed;
-    transition: background-color 0.3s;
-  }
-  
-  body.dark .sidebar {
-    background-color: #1c1c1c;
-  }
-  
-  .foto-perfil {
-    width: 128px;
-    height: 128px;
-    border: 4px solid white;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 10px;
-  }
-  
-  .foto-perfil img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .nome {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .menu {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    font-size: 13px;
-    font-weight: bold;
-  }
-  
-  .menu li {
-    padding: 10px 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  body.dark .menu li {
-    color: #e0e0e0;
-  }
-  
-  .menu li:hover {
-    text-decoration: underline;
-  }
-  
-  .item-principal {
-    background-color: #1d806b;
-    border-radius: 20px;
-  }
-  
-  /* Topbar */
-  .conteudo {
-    flex: 1;
-    margin-left: 200px;
-    background-color: #e6e7e5;
-  }
+
   
   body.dark .conteudo {
     background-color: #1c1c1c;
@@ -240,6 +163,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    width: 100%;
   }
   
 
@@ -249,9 +173,10 @@ body {
     padding: 1rem;
     display: flex;
     gap: 1rem;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.507);
+    width: 500px;
+    margin-top: 20px;
     margin-left: 20px;
-    width: 400px;
 }
 
 .card img {
@@ -290,6 +215,7 @@ body {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .btn.dashboard {
@@ -300,6 +226,16 @@ body {
 .btn.dashboard:hover {
     background-color: #6aa636;
 }
+
+.btn.excluir {
+    background-color: #f44336; /* Vermelho */
+    color: white;
+}
+
+.btn.excluir:hover {
+    background-color: #e53935; /* Vermelho mais escuro */
+}
+
 
 .btn.perfil {
     background-color: #1a73e8;
@@ -342,3 +278,14 @@ body {
     border-color: #1a73e8;
 }
 
+@media (max-width: 768px) {
+  .grid-pacientes{
+    display: inline-block;
+    width: 100%;
+    
+  }
+  .card{
+    width: 100%;
+    margin-left: 0;
+  }
+}

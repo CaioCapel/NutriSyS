@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Histórico de Consultas</title>
+  <link rel="stylesheet" href="css/historico.css" />
+</head>
+<body>
+
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+}
+
+.historico-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.consulta-card {
+  background: #f0f0f0;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.consulta-card h3 {
+  margin: 0 0 10px 0;
+}
+
+.btn-ver {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#adicionarConsultaBtn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 24px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+    </style>
+  <div class="historico-container">
+    <h1>Histórico de Consultas</h1>
+
+    <div class="consulta-card">
+      <h3>Consulta - 05/05/2025</h3>
+      <p><strong>Objetivo:</strong> Redução de gordura corporal</p>
+      <p><strong>Observações:</strong> Evolução positiva, plano alimentar ajustado.</p>
+      <button class="btn-ver">Ver Detalhes</button>
+    </div>
+
+    <div class="consulta-card">
+      <h3>Consulta - 10/04/2025</h3>
+      <p><strong>Objetivo:</strong> Ajuste de macronutrientes</p>
+      <p><strong>Observações:</strong> Relatou dificuldades com refeições noturnas.</p>
+      <button class="btn-ver">Ver Detalhes</button>
+    </div>
+
+    <button id="adicionarConsultaBtn">Adicionar Nova Consulta</button>
+  </div>
+</body>
+</html>
