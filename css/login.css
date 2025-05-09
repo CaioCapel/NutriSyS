@@ -331,6 +331,14 @@ canvas {
   }
 }
 
+/* Esconde o canvas em qualquer tela com largura menor ou igual a 768px (smartphones e alguns tablets) */
+@media screen and (max-width: 768px) {
+  canvas {
+    display: none;
+  }
+}
+
+
 /* Para dispositivos grandes */
 @media screen and (min-width: 1150px) {
   .container {
