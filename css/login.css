@@ -13,7 +13,7 @@
   --body-color: rgba(216, 233, 216, 0.89);
   --container-color: hsl(220, 50%, 97%);
 
-  /*========== Fonte e tipografia ==========*/
+  /*========== Fonte e Estilo ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Montserrat", system-ui;
   --big-font-size: 1.5rem;
@@ -21,7 +21,7 @@
   --small-font-size: .813rem;
   --tiny-font-size: .688rem;
 
-  /*========== Peso da fonte ==========*/
+  /*========== Tamanho da fonte ==========*/
   --font-regular: 400;
   --font-medium: 500;
   --font-semi-bold: 600;
@@ -77,7 +77,7 @@ img {
   height: auto;
 }
 
-/*=============== CLASSES REUTILIZÁVEIS ===============*/
+/*=============== CLASS REUTILIZÁVEIS ===============*/
 .container {
   max-width: 1120px;
   margin-inline: 1.5rem;
