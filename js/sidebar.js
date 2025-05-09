@@ -19,3 +19,15 @@ toggle.onclick = function () {
   navigation.classList.toggle("active");
   main.classList.toggle("active");
 };
+
+const currentPage = window.location.pathname.split("/").pop();
+  const navItems = document.querySelectorAll(".navigation ul li");
+
+  navItems.forEach(li => {
+    const link = li.querySelector("a");
+    if (link && link.getAttribute("href") === currentPage) {
+      li.classList.add("hovered");
+    }
+  });
+
+

@@ -6,29 +6,10 @@ body {
     background-color: #e6e7e5;
   }
   
- 
-  
-
-  
   body.dark .conteudo {
     background-color: #1c1c1c;
   }
-  
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #e6e7e5;
-    border-bottom: 1px solid #ccc;
-    align-items: center;
-    transition: background-color 0.3s;
 
-  }
-  
-  body.dark .topbar {
-    background-color: #333;
-    border-color: #444;
-  }
   
   .esquerda {
     display: flex;

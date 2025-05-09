@@ -5,55 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Paciente</title>
     <link rel="stylesheet" href="css/form-cad-paciente.css">
+    <link rel="stylesheet" href="css/sidebar.css">
     <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="foto-perfil">
-      <img src="img/logo-shortcut.png" alt="" />
-    </div>
-    <p class="nome">Dra. Camila Alves</p>
-    <nav>
-      <ul class="menu">
-        <li class="item-principal">
-          <i class="fas fa-user-injured"></i>PACIENTES
+  <!-- =============== Container ================ -->
+  <div class="container">
+    <!-- =============== Sidebar ================ -->
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span>
+              <img class="icone" src="img/iniciais (2) (1).png" alt="" />
+            </span>
+            <img class="logo" src="img/Nome-removebg-preview (1).png" alt="" />
+          </a>
         </li>
         <li>
-          <a href="form-cad-paciente.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-plus-circle"></i>
-            Novo Paciente
+          <a href="#">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">Dashboard</span>
           </a>
-        </li>        
+        </li>
         <li>
-          <a href="pacientes.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
-          <i class="fas fa-search"></i> Buscar Paciente
+          <a href="#">
+            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+            <span class="title">Pacientes</span>
+          </a>
+        </li>
+        <li>
+          <a href="agenda.html">
+            <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
+            <span class="title">Agenda</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+            <span class="title">Ajuda</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+            <span class="title">Configurações</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <span class="title">Senha</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+            <span class="title">Sair</span>
           </a>
         </li>
       </ul>
-    </nav>
-  </aside>
+    </div>
 
-  <main class="conteudo">
-    <header class="topbar">
-        <div class="esquerda">
-          <button class="icone-btn"><i class="fas fa-bars"></i></button>
-          <div class="campo-pesquisa">
-            <i class="fas fa-search"></i>
-            <input type="search" placeholder="Procurar Paciente..." />
-          </div>
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+      <!-- ================ Topbar ================= -->
+      <div class="topbar">
+        <div class="toggle"><ion-icon name="menu-outline"></ion-icon></div>
+        <div class="search">
+          <label>
+            <input type="text" placeholder="Buscar..." />
+            <ion-icon name="search-outline"></ion-icon>
+          </label>
         </div>
-        <div class="direita">
-          <button class="icone-btn notificacao">
-            <i class="fas fa-bell"></i>
-            <span class="badge">7</span>
-          </button>
-          <button class="icone-btn"><i class="far fa-calendar-alt"></i></button>
-          <button class="icone-btn"><i class="fas fa-ellipsis-v"></i></button>
-          <button class="icone-btn" id="toggleDarkMode"><i class="fas fa-moon"></i></button>
+        <div class="user">
+          <img src="img/iniciais-removebg-preview.png" alt="" />
         </div>
-      </header>
+      </div>
+
         <h1>Cadastro de Paciente</h1>
         <form>
             <fieldset>
@@ -84,15 +114,15 @@
 
             <fieldset>
                 <legend>Histórico Clínico</legend>
-                <label><input type="checkbox"> Diabetes</label>
-                <label><input type="checkbox"> Distenção Abdominal</label>
-                <label><input type="checkbox"> Hipertensão</label>
-                <label><input type="checkbox"> Pirose</label>
-                <label><input type="checkbox"> Gastrite</label>
-                <label><input type="checkbox"> Flatulência</label>
-                <label><input type="checkbox"> Dislipidemia</label>
-                <label><input type="checkbox"> Constipação</label>
-                <label><input type="checkbox"> Hipertireoidismo</label>
+                <label class="checkbox"><input type="checkbox"> Diabetes</label>
+                <label class="checkbox"><input type="checkbox"> Hipertensão</label>
+                <label class="checkbox"><input type="checkbox"> Distenção Abdominal</label>
+                <label class="checkbox"><input type="checkbox"> Pirose</label>
+                <label class="checkbox"><input type="checkbox"> Gastrite</label>
+                <label class="checkbox"><input type="checkbox"> Flatulência</label>
+                <label class="checkbox"><input type="checkbox"> Dislipidemia</label>
+                <label class="checkbox"><input type="checkbox"> Constipação</label>
+                <label class="checkbox"><input type="checkbox"> Hipertireoidismo</label>
                 <label>Possui alguma outra patologia?</label><textarea></textarea>
                 <label>Teve perda ou ganho de peso recente?</label><textarea></textarea>
                 <label>Fuma ou já fumou?</label><textarea></textarea>
@@ -130,5 +160,11 @@
             <button class="btn" type="submit">Salvar Paciente</button>
         </form>
     </main>
+
+    <script src="js/sidebar.js"></script>
+
+     <!-- ====== ionicons ======= -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
