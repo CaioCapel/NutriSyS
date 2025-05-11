@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cálculo Plano Alimentar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  background: #fff;
+  padding: 30px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.resultado {
+  margin-top: 20px;
+  background: #e8f5e9;
+  padding: 20px;
+  border-left: 5px solid #2e7d32;
+  border-radius: 5px;
+}
+
+    </style>
+  <div class="container">
+    <h1>Plano Alimentar - Cálculo de Calorias</h1>
+    <form id="calcForm">
+      <div class="group">
+        <label>Sexo:</label>
+        <select id="sexo">
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+        </select>
+      </div>
+
+      <div class="group">
+        <label>Idade:</label>
+        <input type="number" id="idade" required />
+      </div>
+
+      <div class="group">
+        <label>Peso (kg):</label>
+        <input type="number" id="peso" required />
+      </div>
+
+      <div class="group">
+        <label>Altura (cm):</label>
+        <input type="number" id="altura" required />
+      </div>
+
+      <div class="group">
+        <label>Atividade Física:</label>
+        <select id="atividade">
+          <option value="1.2">Sedentário</option>
+          <option value="1.375">Levemente ativo</option>
+          <option value="1.55">Moderadamente ativo</option>
+          <option value="1.725">Muito ativo</option>
+          <option value="1.9">Extremamente ativo</option>
+        </select>
+      </div>
+
+      <div class="group">
+        <label>Objetivo:</label>
+        <select id="objetivo">
+          <option value="manter">Manter peso</option>
+          <option value="perder">Perder peso</option>
+          <option value="ganhar">Ganhar massa</option>
+        </select>
+      </div>
+
+      <button type="submit">Calcular</button>
+    </form>
+
+    <div id="resultado" class="resultado"></div>
+  </div>
+
+  <script>
+    document.getElementById('calcForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const sexo = document.getElementById('sexo').value;
+  const idade = parseInt(document.getElementById('idade').value);
+  const peso = parseFloat(document.getElementById('peso').value);
+  const altura = parseFloat(document.getElementById('altura').value);
+  const atividade = parseFloat(document.getElementById('atividade').value);
+  const objetivo = document.getElementById('objetivo').value;
+
+  let tmb;
+
+  // Fórmula de Mifflin-St Jeor
+  if (sexo === 'masculino') {
+    tmb = 10 * peso + 6.25 * altura - 5 * idade + 5;
+  } else {
+    tmb = 10 * peso + 6.25 * altura - 5 * idade - 161;
+  }
+
+  const get = tmb * atividade;
+
+  // Ajustar objetivo
+  let calorias;
+  if (objetivo === 'perder') {
+    calorias = get * 0.85; // déficit de 15%
+  } else if (objetivo === 'ganhar') {
+    calorias = get * 1.15; // superávit de 15%
+  } else {
+    calorias = get;
+  }
+
+  // Distribuição de macros
+  const proteinas = peso * 2; // 2g por kg
+  const gordura = peso * 1;   // 1g por kg
+  const calProteinas = proteinas * 4;
+  const calGordura = gordura * 9;
+  const calCarbo = calorias - (calProteinas + calGordura);
+  const carboidratos = calCarbo / 4;
+
+  // Mostrar resultado
+  const resultadoDiv = document.getElementById('resultado');
+  resultadoDiv.innerHTML = `
+    <h3>Resultado:</h3>
+    <p><strong>TMB:</strong> ${tmb.toFixed(2)} kcal</p>
+    <p><strong>Gasto total (GET):</strong> ${get.toFixed(2)} kcal</p>
+    <p><strong>Calorias diárias para "${objetivo}":</strong> ${calorias.toFixed(2)} kcal</p>
+    <h4>Macronutrientes:</h4>
+    <ul>
+      <li><strong>Proteínas:</strong> ${proteinas.toFixed(1)}g</li>
+      <li><strong>Gorduras:</strong> ${gordura.toFixed(1)}g</li>
+      <li><strong>Carboidratos:</strong> ${carboidratos.toFixed(1)}g</li>
+    </ul>
+  `;
+});
+
+  </script>
+</body>
+</html>

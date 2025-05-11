@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plano Alimentar - Drag and Drop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #f0f4f8;
+            color: #333;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        .flex {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .lista-alimentos {
+            width: 300px;
+            background: #fafafa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .lista-alimentos h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .alimento {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .alimento:hover {
+            background-color: #e3f2fd;
+        }
+
+        .area-refeicao {
+            flex-grow: 1;
+        }
+
+        .refeicao {
+            background: #f9fafb;
+            border-left: 6px solid #4caf50;
+            margin-bottom: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .refeicao h3 {
+            margin-bottom: 1rem;
+            color: #2e7d32;
+        }
+
+        .itens-refeicao {
+            min-height: 100px;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #e3f2fd;
+            border-radius: 8px;
+            border: 2px dashed #4caf50;
+            /* Borda para indicar área de soltura */
+            overflow-y: auto;
+            /* Permite o scroll caso os itens ultrapassem o tamanho da área */
+            max-height: 300px;
+            /* Limita a altura máxima da área */
+        }
+
+        .totais {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .totais h3 {
+            margin-bottom: 1rem;
+            color: #1565c0;
+        }
+
+        .macros span {
+            display: block;
+            margin: 0.4rem 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Plano Alimentar - Arraste para a Refeição</h1>
+        <div class="flex">
+            <div class="lista-alimentos">
+                <h3>Alimentos Disponíveis</h3>
+                <div class="alimento" id="arroz" draggable="true" data-nome="Arroz (100g)" data-calorias="130"
+                    data-proteina="3" data-carbo="28" data-gordura="0.3" ondragstart="drag(event)">Arroz (100g)</div>
+                <div class="alimento" id="frango" draggable="true" data-nome="Frango (100g)" data-calorias="165"
+                    data-proteina="31" data-carbo="0" data-gordura="3.6" ondragstart="drag(event)">Frango (100g)</div>
+                <div class="alimento" id="ovo" draggable="true" data-nome="Ovo (1 unidade)" data-calorias="70"
+                    data-proteina="6" data-carbo="0.6" data-gordura="5" ondragstart="drag(event)">Ovo (1 unidade)</div>
+                <div class="alimento" id="batata" draggable="true" data-nome="Batata Doce (100g)" data-calorias="86"
+                    data-proteina="1.6" data-carbo="20" data-gordura="0.1" ondragstart="drag(event)">Batata Doce (100g)
+                </div>
+                <div class="alimento" id="feijao" draggable="true" data-nome="Feijão (100g)" data-calorias="77"
+                    data-proteina="5.6" data-carbo="14" data-gordura="0.8" ondragstart="drag(event)">Feijão (100g)</div>
+                <div class="alimento" id="brocolis" draggable="true" data-nome="Brócolis (100g)" data-calorias="34"
+                    data-proteina="2.8" data-carbo="6.6" data-gordura="0.4" ondragstart="drag(event)">Brócolis (100g)
+                </div>
+            </div>
+
+            <div class="area-refeicao">
+                <div class="refeicao" id="cafe-da-manha">
+                    <h3>Café da Manhã</h3>
+                    <div class="itens-refeicao" id="itens-cafe" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    </div>
+                </div>
+                <div class="refeicao" id="almoco">
+                    <h3>Almoço</h3>
+                    <div class="itens-refeicao" id="itens-almoco" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    </div>
+                </div>
+                <div class="refeicao" id="jantar">
+                    <h3>Jantar</h3>
+                    <div class="itens-refeicao" id="itens-jantar" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="totais" class="totais">
+            <h3>Totais Diários</h3>
+            <div class="macros">
+                <span>Calorias: <strong id="totalCal">0</strong> kcal</span>
+                <span>Proteínas: <strong id="totalProt">0</strong> g</span>
+                <span>Carboidratos: <strong id="totalCarb">0</strong> g</span>
+                <span>Gorduras: <strong id="totalGord">0</strong> g</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let totalCalorias = 0;
+        let totalProteina = 0;
+        let totalCarboidrato = 0;
+        let totalGordura = 0;
+
+        function allowDrop(event) {
+            event.preventDefault(); // Permite o "drop"
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id); // Armazena o id do alimento
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text"); // Obtém o id do alimento arrastado
+            const alimento = document.getElementById(data);
+
+            const nome = alimento.getAttribute('data-nome');
+            const calorias = parseFloat(alimento.getAttribute('data-calorias'));
+            const proteina = parseFloat(alimento.getAttribute('data-proteina'));
+            const carbo = parseFloat(alimento.getAttribute('data-carbo'));
+            const gordura = parseFloat(alimento.getAttribute('data-gordura'));
+
+            // Adiciona o alimento à refeição
+            const refeicaoId = event.target.id;
+            const refeicaoDiv = document.getElementById(refeicaoId);
+
+            const novoItem = document.createElement('div');
+            novoItem.classList.add('item-refeicao');
+            novoItem.innerHTML = `
+        <span>${nome}</span>
+        <span>${calorias} kcal</span>
+        <span>${proteina} g</span>
+        <span>${carbo} g</span>
+        <span>${gordura} g</span>
+      `;
+
+            refeicaoDiv.appendChild(novoItem); // Adiciona o alimento à refeição
+            atualizarTotais(calorias, proteina, carbo, gordura); // Atualiza totais
+        }
+
+        function atualizarTotais(calorias, proteina, carbo, gordura) {
+            totalCalorias += calorias;
+            totalProteina += proteina;
+            totalCarboidrato += carbo;
+            totalGordura += gordura;
+
+            document.getElementById('totalCal').innerText = totalCalorias.toFixed(1);
+            document.getElementById('totalProt').innerText = totalProteina.toFixed(1);
+            document.getElementById('totalCarb').innerText = totalCarboidrato.toFixed(1);
+            document.getElementById('totalGord').innerText = totalGordura.toFixed(1);
+        }
+    </script>
+</body>
+
+</html>
