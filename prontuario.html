@@ -1,100 +1,205 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prontuário do Paciente</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/prontuario.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+
 </head>
 
 <body>
 
-  <!-- Botão de Voltar -->
-  <button class="back-btn" onclick="window.history.back()">Voltar</button>
+  <!-- =============== Container ================ -->
+  <div class="container">
+    <!-- =============== Sidebar ================ -->
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span>
+              <img class="icone" src="img/iniciais (2) (1).png" alt="" />
+            </span>
+            <img class="logo" src="img/Nome-removebg-preview (1).png" alt="" />
+          </a>
+        </li>
+        <li>
+          <a href="dashboard.html">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="pacientes.html">
+            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+            <span class="title">Pacientes</span>
+          </a>
+        </li>
+        <li>
+          <a href="agenda.html" class="hovered">
+            <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
+            <span class="title">Agenda</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+            <span class="title">Ajuda</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+            <span class="title">Configurações</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <span class="title">Senha</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+            <span class="title">Sair</span>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-  <div class="content">
-    <h2>Prontuário do Paciente</h2>
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+      <!-- ================ Topbar ================= -->
+      <div class="topbar">
+        <div class="toggle"><ion-icon name="menu-outline"></ion-icon></div>
+        <div class="search">
+          <label>
+            <input type="text" placeholder="Buscar..." />
+            <ion-icon name="search-outline"></ion-icon>
+          </label>
+        </div>
+        <div class="user">
+          <img src="img/iniciais-removebg-preview.png" alt="" />
+        </div>
+      </div>
 
-    <!-- Informações Pessoais -->
-    <div class="patient-info">
-      <h3>Informações Pessoais</h3>
-      <p><strong>Nome:</strong> João Silva</p>
-      <p><strong>Data de Nascimento:</strong> 01/01/1995</p>
-      <p><strong>Idade:</strong> 30 anos</p>
-      <p><strong>Gênero:</strong> Masculino</p>
-      <p><strong>Peso:</strong> 75 kg</p>
-      <p><strong>Altura:</strong> 1.75 m</p>
-      <p><strong>Objetivo da Consulta:</strong> Emagrecimento</p>
+      <div class="container">
+
+         <!-- CONTEÚDO QUE SERÁ EXPORTADO PARA PDF -->
+  <div id="conteudo-pdf">
+    <!-- Cartões -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fa-solid fa-user"></i>
+        <h2>Informações Pessoais</h2>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="field-group">
+            <label>Nome</label>
+            <div class="info-box"><span>João da Silva</span></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="field-group">
+            <label>Idade</label>
+            <div class="info-box"><span>39 anos</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="field-group">
+            <label>Gênero</label>
+            <div class="info-box"><span>Masculino</span></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="field-group">
+            <label>Data de Nascimento</label>
+            <div class="info-box"><span>10/06/1985</span></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Histórico Clínico -->
-    <div class="medical-history">
-      <h3>Histórico Clínico</h3>
-      <p><strong>Diabetes:</strong> Não</p>
-      <p><strong>Distenção Abdominal:</strong> Não</p>
-      <p><strong>Hipertensão:</strong> Não</p>
-      <p><strong>Pirose:</strong> Não</p>
-      <p><strong>Gastrite:</strong> Sim</p>
-      <p><strong>Flatulência:</strong> Sim</p>
-      <p><strong>Dislipidemia:</strong> Não</p>
-      <p><strong>Constipação:</strong> Não</p>
-      <p><strong>Hipotireoidismo:</strong> Não</p>
-      <p><strong>Possui alguma outra patologia?</strong> Não</p>
-      <p><strong>Teve perda ou ganho de peso recente?</strong> Não</p>
-      <p><strong>Fuma ou já fumou?</strong> Não</p>
-      <p><strong>Faz uso de bebida alcoólica?</strong> Não</p>
-      <p><strong>Pratica atividade física?</strong> Não</p>
-      <p><strong>Como é a qualidade do seu sono? Dorme quantas horas?</strong> Boa, 7 Horas por dia</p>
-      <p><strong>Faz uso de medicamentos? Ou suplemento?</strong> Não</p>
-    </div>
-
-    <!-- Padrão Alimentar -->
-    <div class="padrao-alimentar">
-      <h3>Padrão Alimentar</h3>
-      <p><strong>Possui alergia a algum alimento?</strong> Não</p>
-      <p><strong>Quais alimentos tem aversão?</strong> Não</p>
-      <p><strong>Alimentos de preferência?</strong> Não</p>
-      <p><strong>Quantas refeições faz no dia? E qual delas come em maior quantidade?</strong> Não</p>
-      <p><strong>Como é seu hábito intestinal?</strong> Sim</p>
-      <p><strong>O que costuma comer nas seguintes refeições:</strong></p>
-      <p><strong>Desjejum:</strong> Não</p>
-      <p><strong>Lanche da manhã:</strong> Não</p>
-      <p><strong>Almoço:</strong> Não</p>
-      <p><strong>Lanche da Tarde:</strong> Não</p>
-      <p><strong>Jantar:</strong> Não</p>
+    <div class="card">
+      <div class="card-header">
+        <i class="fa-solid fa-notes-medical"></i>
+        <h2>Histórico Clínico</h2>
+      </div>
+      <div class="field-group">
+        <label>Diabetes</label>
+        <div class="info-box"><span>Não</span></div>
+      </div>
+      <div class="field-group">
+        <label>Hipertensão</label>
+        <div class="info-box"><span>Sim</span></div>
+      </div>
+      <div class="field-group">
+        <label>Gastrite</label>
+        <div class="info-box"><span>Não</span></div>
+      </div>
     </div>
 
     <!-- Plano Alimentar -->
-    <div class="plan">
-      <h3>Observações</h3>
-      <p><strong>Nenhuma Observação</strong>
+    <div class="card">
+      <div class="card-header">
+        <i class="fa-solid fa-apple-whole"></i>
+        <h2>Padrão Alimentar</h2>
+      </div>
+      <div class="field-group">
+        <label>Alergia a Alimentos</label>
+        <div class="info-box"><span>Nenhuma</span></div>
+      </div>
+      <div class="field-group">
+        <label>Preferências Alimentares</label>
+        <div class="info-box"><span>Prefere pratos leves e naturais, sem glúten.</span></div>
+      </div>
     </div>
-
-    <!-- Plano Alimentar -->
-    <div class="plan">
-      <h3>Plano Alimentar</h3>
-      <p><strong>Plano Atual:</strong> Redução de carboidratos e aumento de proteínas.</p>
-      <button>Anexar Plano Alimentar</button>
-    </div>
-
-    <!-- Anexos -->
-    <div class="attachments">
-      <h3>Outros Anexos</h3>
-      <ul>
-        <li><a href="#">Exame de Sangue.pdf</a></li>
-        <li><a href="#">Receita Médica.pdf</a></li>
-      </ul>
-      <button>Adicionar Anexo</button>
-    </div>
-
-    <button class="btn">Salvar Alterações</button>
-    <button id="downloadPdfBtn" class="btn">Baixar Prontuário em PDF</button>
   </div>
 
-  <script src="js/prontuario.js"></script>
+  <!-- Botão fora da área exportada -->
+  <button class="btn-pdf" onclick="gerarPDF()">
+    <i class="fa-solid fa-file-arrow-down"></i>
+  </button>
+</div>
+
+<!-- Scripts -->
+<script>
+  function gerarPDF() {
+    const element = document.getElementById("conteudo-pdf");
+
+    const opt = {
+      margin: 10,
+      filename: 'prontuario_visual.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
+  }
+</script>
+
+<!-- Bibliotecas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script src="js/sidebar.js"></script>
+
+      <!-- ====== ionicons ======= -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>

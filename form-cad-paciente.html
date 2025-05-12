@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Paciente</title>
-    <link rel="stylesheet" href="css/form-cad-paciente.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/form-cad-paciente.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- =============== Container ================ -->
+
+   <!-- =============== Container ================ -->
   <div class="container">
     <!-- =============== Sidebar ================ -->
     <div class="navigation">
@@ -24,13 +24,13 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="dashboard.html">
             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
             <span class="title">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="pacientes.html">
             <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
             <span class="title">Pacientes</span>
           </a>
@@ -84,86 +84,99 @@
         </div>
       </div>
 
-        <h1>Cadastro de Paciente</h1>
-        <form>
-            <fieldset>
-                <legend>Informações Pessoais</legend>
-                <label>Nome:</label><input type="text">
-                <label>Data de nascimento:</label><input type="date">
-                <label>Idade:</label><input type="number">
-                <label for="genero">Gênero:</label>
-                <select id="genero" name="genero">
-                  <option value="">Selecione</option>
-                  <option value="feminino">Feminino</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="nao-informado">Prefiro não informar</option>
-                  <option value="outro">Outro</option>
-                </select>               
-                <label>Peso:</label><input type="number" step="any">
-                <label>Altura:</label><input type="number" step="any">
-                <label for="objetivo">Objetivo da consulta:</label>
-                <select id="objetivo" name="objetivo">
-                  <option value="">Selecione</option>
-                  <option value="emagrecimento">Emagrecimento</option>
-                  <option value="ganho-de-massa">Ganho de massa muscular</option>
-                  <option value="reeducacao-alimentar">Reeducação alimentar</option>
-                  <option value="melhora-saude">Melhorar saúde geral</option>
-                  <option value="outro">Outro</option>
-                </select>
-            </fieldset>
+  <div class="container">
+    <div class="content">
+      <form>
+        <fieldset>
+          <legend><i class="fa-solid fa-user"></i> Informações Pessoais</legend>
+          <div class="form-grid">
+            <div><label>Nome:</label><input type="text"></div>
+            <div><label>Data de nascimento:</label><input type="date"></div>
+            <div><label>Idade:</label><input type="number"></div>
+            <div>
+              <label for="genero">Gênero:</label>
+              <select id="genero">
+                <option value="">Selecione</option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="nao-informado">Prefiro não informar</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div><label>Peso (kg):</label><input type="number" step="any"></div>
+            <div><label>Altura (cm):</label><input type="number" step="any"></div>
+            <div>
+              <label for="objetivo">Objetivo da consulta:</label>
+              <select id="objetivo">
+                <option value="">Selecione</option>
+                <option value="emagrecimento">Emagrecimento</option>
+                <option value="ganho-de-massa">Ganho de massa muscular</option>
+                <option value="reeducacao-alimentar">Reeducação alimentar</option>
+                <option value="melhora-saude">Melhorar saúde geral</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
 
-            <fieldset>
-                <legend>Histórico Clínico</legend>
-                <label class="checkbox"><input type="checkbox"> Diabetes</label>
-                <label class="checkbox"><input type="checkbox"> Hipertensão</label>
-                <label class="checkbox"><input type="checkbox"> Distenção Abdominal</label>
-                <label class="checkbox"><input type="checkbox"> Pirose</label>
-                <label class="checkbox"><input type="checkbox"> Gastrite</label>
-                <label class="checkbox"><input type="checkbox"> Flatulência</label>
-                <label class="checkbox"><input type="checkbox"> Dislipidemia</label>
-                <label class="checkbox"><input type="checkbox"> Constipação</label>
-                <label class="checkbox"><input type="checkbox"> Hipertireoidismo</label>
-                <label>Possui alguma outra patologia?</label><textarea></textarea>
-                <label>Teve perda ou ganho de peso recente?</label><textarea></textarea>
-                <label>Fuma ou já fumou?</label><textarea></textarea>
-                <label>Faz uso de bebida alcoólica?</label><textarea></textarea>
-                <label>Pratica atividade física?</label><textarea></textarea>
-                <label>Como é a qualidade do seu sono? Dorme quantas horas?</label><textarea></textarea>
-                <label>Faz uso de medicamentos? Ou suplemento?</label><textarea></textarea>
-            </fieldset>
+        <fieldset>
+          <legend><i class="fa-solid fa-notes-medical"></i> Histórico Clínico</legend>
+          <label class="checkbox"><input type="checkbox"> Diabetes</label>
+          <label class="checkbox"><input type="checkbox"> Hipertensão</label>
+          <label class="checkbox"><input type="checkbox"> Gastrite</label>
+           <label class="checkbox"><input type="checkbox"> Distenção Abdominal</label>
+           <label class="checkbox"><input type="checkbox"> Gastrite</label>
+           <label class="checkbox"><input type="checkbox"> Flatulência</label>
+           <label class="checkbox"><input type="checkbox"> Dislipidemia</label>
+           <label class="checkbox"><input type="checkbox"> Constipação</label>
+           <label class="checkbox"><input type="checkbox"> Hipertireoidismo</label>
+           <label class="checkbox"><input type="checkbox"> Hipotireoidismo</label>
+           <label class="checkbox"><input type="checkbox"> Pirose</label>
+          <label>Outras patologias:</label><textarea></textarea>
+          <label>Perda ou ganho de peso recente:</label><textarea></textarea>
+          <label>Fuma ou já fumou?</label><textarea></textarea>
+          <label>Bebida alcoólica?</label><textarea></textarea>
+          <label>Atividade física:</label><textarea></textarea>
+          <label>Sono (qualidade e horas):</label><textarea></textarea>
+          <label>Medicamentos ou suplementos:</label><textarea></textarea>
+        </fieldset>
 
-            <fieldset>
-                <legend>Padrão Alimentar</legend>
-                <label>Possui alergia a algum alimento?</label><textarea></textarea>
-                <label>Quais alimentos tem aversão?</label><textarea></textarea>
-                <label>Alimentos de preferência?</label><textarea></textarea>
-                <label>Quantas refeições faz no dia? E qual delas come em maior quantidade?</label><textarea></textarea>
-                <label>Como é seu hábito intestinal?</label><textarea></textarea>
-                <label>O que costuma comer nas seguintes refeições:</label>
-                <label>Desjejum:</label><textarea></textarea>
-                <label>Lanche da manhã:</label><textarea></textarea>
-                <label>Almoço:</label><textarea></textarea>
-                <label>Lanche da tarde:</label><textarea></textarea>
-                <label>Jantar:</label><textarea></textarea>
-            </fieldset>
+        <fieldset>
+          <legend><i class="fa-solid fa-apple-whole"></i> Padrão Alimentar</legend>
+          <label>Alergia a alimentos:</label><textarea></textarea>
+          <label>Aversão alimentar:</label><textarea></textarea>
+          <label>Preferências:</label><textarea></textarea>
+          <label>Quantas refeições faz? Qual em maior quantidade?</label><textarea></textarea>
+          <label>Hábito intestinal:</label><textarea></textarea>
+        </fieldset>
 
-            <fieldset>
-                <legend>Observações:</legend>
-                <textarea></textarea>
-            </fieldset>
+        <fieldset>
+          <legend><i class="fa-solid fa-clock"></i> Rotina Alimentar Diária</legend>
+          <label>Desjejum:</label><textarea></textarea>
+          <label>Lanche da manhã:</label><textarea></textarea>
+          <label>Almoço:</label><textarea></textarea>
+          <label>Lanche da tarde:</label><textarea></textarea>
+          <label>Jantar:</label><textarea></textarea>
+        </fieldset>
 
-            <fieldset>
-                <legend>Descrição Plano Alimentar</legend>
-                <textarea></textarea>
-            </fieldset>
+        <fieldset>
+          <legend><i class="fa-solid fa-comments"></i> Observações</legend>
+          <textarea></textarea>
+        </fieldset>
 
-            <button class="btn" type="submit">Salvar Paciente</button>
-        </form>
-    </main>
+        <fieldset>
+          <legend><i class="fa-solid fa-bowl-food"></i> Descrição do Plano Alimentar</legend>
+          <textarea></textarea>
+        </fieldset>
 
-    <script src="js/sidebar.js"></script>
+        <button class="btn-fixed" type="submit">Salvar Paciente</button>
+      </form>
+    </div>
+  </div>
 
-     <!-- ====== ionicons ======= -->
+   <script src="js/sidebar.js"></script>
+
+   <!-- ====== ionicons ======= -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

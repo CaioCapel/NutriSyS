@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Histórico de Consultas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #1a73e8;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      padding: 20px;
+      position: relative;
+      width: 50%;
+    }
+
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .timeline-content::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      width: 10px;
+      height: 10px;
+      background: #1a73e8;
+      border-radius: 50%;
+      border: 2px solid white;
+      z-index: 1;
+    }
+
+    .timeline-item.left .timeline-content::after {
+      right: -30px;
+    }
+
+    .timeline-item.right .timeline-content::after {
+      left: -30px;
+    }
+
+    .timeline-content h3 {
+      margin: 0 0 10px;
+      color: #1a73e8;
+    }
+
+    .timeline-content p {
+      margin: 6px 0;
+      color: #555;
+    }
+
+    .btn-detalhes {
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: none;
+      background-color: #1a73e8;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-detalhes:hover {
+      background-color: #155ab6;
+    }
+
+    /* Responsivo */
+    @media screen and (max-width: 768px) {
+      .timeline-line {
+        left: 8px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 0;
+      }
+
+      .timeline-item.right {
+        left: 0;
+      }
+
+      .timeline-content::after {
+        left: -22px !important;
+      }
+
+      .timeline-item.left, .timeline-item.right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <h3><i class="fa-solid fa-calendar-check"></i> 05/05/2025</h3>
+        <p><strong>Objetivo:</strong> Redução de gordura corporal</p>
+        <p><strong>Observações:</strong> Evolução positiva, plano alimentar ajustado.</p>
+        <button class="btn-detalhes">Ver Detalhes</button>
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <h3><i class="fa-solid fa-calendar-check"></i> 10/04/2025</h3>
+        <p><strong>Objetivo:</strong> Ajuste de macronutrientes</p>
+        <p><strong>Observações:</strong> Relatou dificuldades com refeições noturnas.</p>
+        <button class="btn-detalhes">Ver Detalhes</button>
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <h3><i class="fa-solid fa-calendar-check"></i> 15/03/2025</h3>
+        <p><strong>Objetivo:</strong> Início da reeducação alimentar</p>
+        <p><strong>Observações:</strong> Orientações iniciais e definição de metas.</p>
+        <button class="btn-detalhes">Ver Detalhes</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

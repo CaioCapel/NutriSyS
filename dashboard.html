@@ -1,130 +1,205 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sidebar Nutricionista</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="css/dashboard.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" type="image/png" href="img/logo-shortcut.png">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+
+	<title>Dashboard</title>
 </head>
 <body>
-   <!-- Sidebar -->
-   <aside class="sidebar">
-    <div class="foto-perfil">
-      <img src="img/logo-shortcut.png" alt="" />
-    </div>
-    <p class="nome">Dra. Camila Alves</p>
-    <nav>
-      <ul class="menu">
-        <li class="item-principal">
-          <i class="fas fa-user-injured"></i>PACIENTES
+
+  <!-- =============== Container ================ -->
+  <div class="container">
+    <!-- =============== Sidebar ================ -->
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span>
+              <img class="icone" src="img/iniciais (2) (1).png" alt="" />
+            </span>
+            <img class="logo" src="img/Nome-removebg-preview (1).png" alt="" />
+          </a>
         </li>
         <li>
-          <a href="form-cad-paciente.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-plus-circle"></i>
-            Novo Paciente
+          <a href="dashboard.html" class="c">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">Dashboard</span>
           </a>
-        </li>        
+        </li>
         <li>
-          <a href="pacientes.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
-          <i class="fas fa-search"></i> Buscar Paciente
+          <a href="pacientes.html">
+            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+            <span class="title">Pacientes</span>
+          </a>
+        </li>
+        <li>
+          <a href="agenda.html">
+            <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
+            <span class="title">Agenda</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+            <span class="title">Ajuda</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+            <span class="title">Configurações</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+            <span class="title">Senha</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+            <span class="title">Sair</span>
           </a>
         </li>
       </ul>
-    </nav>
-  </aside>
-
-  <!-- Main content -->
-  <main class="conteudo">
-    <header class="topbar">
-      <div class="esquerda">
-        <button class="icone-btn"><i class="fas fa-bars"></i></button>
-        <div class="campo-pesquisa">
-          <i class="fas fa-search"></i>
-          <input type="search" placeholder="Procurar Paciente..." />
-        </div>
-      </div>
-      <div class="direita">
-        <button class="icone-btn notificacao">
-          <i class="fas fa-bell"></i>
-          <span class="badge">7</span>
-        </button>
-        <button class="icone-btn"><i class="far fa-calendar-alt"></i></button>
-        <button class="icone-btn"><i class="fas fa-ellipsis-v"></i></button>
-        <button class="icone-btn" id="toggleDarkMode"><i class="fas fa-moon"></i></button>
-      </div>
-    </header>
-    <section class="grid-cards">
-      <div class="card">
-        <div class="card-header vermelho">
-          <h3>Pacientes</h3>
-          <button>+</button>
-        </div>
-        <div class="card-body">
-          <p>Número de Pacientes cadastrados</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header verde">
-          <h3>Consultas do Mês</h3>
-          <button>+</button>
-        </div>
-        <div class="card-body">
-          <p>Atendimentos do Mês</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header azul">
-          <h3>Alertas & Pendências</h3>
-          <button>+</button>
-        </div>
-        <div class="card-body">
-          <li>Paciente Ana sem retorno agendado</li>
-          <li>João precisa atualizar exame</li>
-          <li>Plano de Carlos vence em 2 dias</li>
-        </div>
-      </div>
-    </section>
-  
-    <section class="grid-cards">
-      <div class="card">
-        <div class="card-header verde">
-          <h3>Pacientes por Mês</h3>
-        </div>
-        <div class="card-body">
-          <canvas id="graficoPacientes" width="300" height="50"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid-cards">
-    <div class="card">
-      <div class="card-header verde">
-        <h3>Pacientes Sem Plano Alimentar</h3>
-      </div>
-      <div class="card-body">
-        <div class="lista-pacientes-sem-plano">
-          <div class="paciente-item">
-            <span>João da Silva</span>
-            <button>Anexar Plano</button>
-          </div>
-          <div class="paciente-item">
-            <span>Ana Souza</span>
-            <button>Anexar Plano</button>
-          </div>
-          <div class="paciente-item">
-            <span>Maria Oliveira</span>
-            <button>Anexar Plano</button>
-          </div>
-        </div>
-      </div>
     </div>
-    </section>
-  </main>
 
-  <script src="js/dashboard.js"></script>
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+      <!-- ================ Topbar ================= -->
+      <div class="topbar">
+        <div class="toggle"><ion-icon name="menu-outline"></ion-icon></div>
+        <div class="search">
+          <label>
+            <input type="text" placeholder="Buscar..." />
+            <ion-icon name="search-outline"></ion-icon>
+          </label>
+        </div>
+        <div class="user">
+          <img src="img/iniciais-removebg-preview.png" alt="" />
+        </div>
+      </div>
 
+
+<!-- CONTENT -->
+<section id="content">
+	<!-- MAIN -->
+	<main>
+		<div class="head-title">
+			<div class="left">
+				<h1>Dashboard</h1>
+			</div>
+		</div>
+
+		<ul class="box-info">
+			<li>
+				<i class='bx bxs-user'></i>
+				<span class="text">
+					<h3>124</h3>
+					<p>Pacientes Ativos</p>
+				</span>
+			</li>
+			<li>
+				<i class='bx bxs-calendar'></i>
+				<span class="text">
+					<h3>17</h3>
+					<p>Consultas Hoje</p>
+				</span>
+			</li>
+			<li>
+				<i class='bx bxs-book-content'></i>
+				<span class="text">
+					<h3>95</h3>
+					<p>Planos Cadastrados</p>
+				</span>
+			</li>
+		</ul>
+
+    <div class="agenda-dia">
+  <h3>Agenda de Hoje +</h3>
+  <ul id="lista-agenda-dia">
+    <li><strong>08:30</strong> - Maria Silva: Consulta de retorno</li>
+    <li><strong>10:00</strong> - João Pereira: Primeira avaliação</li>
+    <li><strong>14:15</strong> - Ana Paula: Reavaliação nutricional</li>
+  </ul>
+</div>
+
+
+		<div class="table-data">
+			<div class="order">
+				<div class="head">
+					<h3>Consultas Recentes +</h3>
+					<i class='bx bx-search'></i>
+					<i class='bx bx-filter'></i>
+				</div>
+				<table>
+					<thead>
+						<tr>
+							<th>Paciente</th>
+							<th>Data</th>
+              <th class="col-status">Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><img src="https://placehold.co/600x400/png"><p>Maria Silva</p></td>
+							<td>12/05/2025</td>
+							<td class="col-status"><span class="status completed">Concluída</span></td>
+						</tr>
+						<tr>
+							<td><img src="https://placehold.co/600x400/png"><p>João Pereira</p></td>
+							<td>12/05/2025</td>
+							<td class="col-status"><span class="status pending">Pendente</span></td>
+						</tr>
+						<tr>
+							<td><img src="https://placehold.co/600x400/png"><p>Ana Paula</p></td>
+							<td>11/05/2025</td>
+							<td class="col-status"><span class="status process">Em andamento</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="todo">
+				<div class="head">
+					<h3>Tarefas +</h3>
+					<i class='bx bx-plus icon'></i>
+					<i class='bx bx-filter'></i>
+				</div>
+				<ul class="todo-list">
+					<li class="completed">
+						<p>Revisar plano da Maria</p>
+						<i class='bx bx-dots-vertical-rounded'></i>
+					</li>
+					<li class="not-completed">
+						<p>Montar cardápio para João</p>
+						<i class='bx bx-dots-vertical-rounded'></i>
+					</li>
+					<li class="completed">
+						<p>Atualizar dados de Ana Paula</p>
+						<i class='bx bx-dots-vertical-rounded'></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</main>
+	<!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+<script src="js/sidebar.js"></script>
+
+<!-- ====== ionicons ======= -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

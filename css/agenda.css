@@ -60,11 +60,11 @@
 }
 
 /* Estilo do título */
-.cardHeader h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.cardHeader h1 {
+    font-size: 36px;
     font-weight: 600;
-    color: #333;
+    margin-bottom: 10px;
+    color: #2e7d32;
 }
 
 /* Estilo do botão de adicionar consulta */
@@ -132,7 +132,7 @@
 
 .navigation ul li:hover a,
 .navigation ul li.hovered a {
-  color: var(--blue);
+  color: var(--green);
 }
 
 

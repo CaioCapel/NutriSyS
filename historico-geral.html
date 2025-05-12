@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Histórico Geral de Consultas</title>
+  <link rel="stylesheet" href="css/historico-geral.css" />
+</head>
+<body>
+
+    <style>
+        body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f5f7fa;
+}
+
+.page-container {
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px 40px;
+}
+
+.historico-geral h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.consulta-card {
+  background-color: #fff;
+  border-left: 6px solid #1a73e8;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.consulta-card:hover {
+  transform: scale(1.01);
+}
+
+.consulta-info h2 {
+  margin: 0 0 10px 0;
+  color: #1a73e8;
+}
+
+.consulta-info p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.consulta-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-detalhes, .btn-prontuario {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-detalhes:hover, .btn-prontuario:hover {
+  background-color: #155ab6;
+}
+
+.btn-adicionar {
+  margin-top: 40px;
+  padding: 14px 24px;
+  font-size: 16px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  transition: background-color 0.2s ease;
+}
+
+.btn-adicionar:hover {
+  background-color: #27ae60;
+}
+
+    </style>
+  <div class="page-container">
+    <aside class="sidebar"> <!-- Sua sidebar aqui --> </aside>
+
+    <main class="main-content">
+      <header class="topbar"> <!-- Sua topbar aqui --> </header>
+
+      <section class="historico-geral">
+        <h1>Histórico Geral de Consultas</h1>
+
+        <div class="cards-container">
+          <!-- Card de consulta -->
+          <div class="consulta-card">
+            <div class="consulta-info">
+              <h2>Maria Souza</h2>
+              <p><strong>Última Consulta</strong></p>
+              <p><strong>Data:</strong> 05/05/2025</p>
+              <p><strong>Objetivo:</strong> Redução de gordura corporal</p>
+            </div>
+            <div class="consulta-actions">
+              <button onclick="verDetalhes('maria-souza')">Ver Detalhes</button>
+              <button class="btn-prontuario">Ver Prontuário</button>
+            </div>
+          </div>
+
+          <div class="consulta-card">
+            <div class="consulta-info">
+              <h2>João Lima</h2>
+              <p><strong>Última Consulta</strong></p>
+              <p><strong>Data:</strong> 28/04/2025</p>
+              <p><strong>Objetivo:</strong> Ganho de massa magra</p>
+            </div>
+            <div class="consulta-actions">
+              <button onclick="verDetalhes('maria-souza')">Ver Detalhes</button>
+              <button class="btn-prontuario">Ver Prontuário</button>
+            </div>
+          </div>
+          <!-- Adicione mais cards aqui -->
+        </div>
+
+        <button class="btn-adicionar">Adicionar Nova Consulta</button>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function verDetalhes(pacienteId) {
+  window.location.href = `historico-detalhado.html?paciente=${pacienteId}`;
+}
+  </script>
+</body>
+</html>
