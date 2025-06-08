@@ -135,8 +135,10 @@
   color: var(--green);
 }
 
-
-
+.search{
+  color: var(--green);
+  text-align: center;
+}
 
 /* Responsivo para tablets */
 @media (max-width: 1024px) {

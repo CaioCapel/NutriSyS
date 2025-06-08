@@ -321,6 +321,11 @@ body {
     color: #2e7d32;
 }
 
+.search{
+  color: var(--green);
+  text-align: center;
+}
+
 
 @media (max-width: 900px) {
   .grid-pacientes{

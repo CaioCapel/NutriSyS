@@ -296,6 +296,11 @@ h3{
   text-decoration: underline;
 }
 
+.search{
+  color: var(--green);
+  text-align: center;
+}
+
 /* Media Query for Smaller Screens */
 @media screen and (max-width: 768px) {
   
