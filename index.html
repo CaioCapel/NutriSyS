@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Nutricionista</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Sidebar fixa */
+    #sidebar {
+      width: 280px;
+      min-height: 100vh;
+    }
+    main {
+      margin-left: 280px;
+    }
+    /* Scroll suave para navegação */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Link ativo (exemplo básico, pode ajustar com JS) */
+    nav a.active {
+      background-color: #115e59;
+      color: #d1fae5;
+    }
+    /* Esconder sidebar lateral no mobile */
+    @media (max-width: 640px) {
+      #sidebar {
+        display: none;
+      }
+      main {
+        margin-left: 0;
+        padding-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed top-0 left-0 bg-teal-700 text-teal-100 flex flex-col">
+    <div class="p-6 border-b border-teal-600">
+      <h1 class="text-2xl font-semibold mb-1">NutriDashboard</h1>
+      <p class="text-sm">Dra. Camila</p>
+    </div>
+    <nav class="flex flex-col flex-grow px-4 py-6 space-y-2 text-sm font-semibold">
+      <a href="#resumo" class="flex items-center gap-3 p-3 rounded-lg hover:bg-teal-600 transition active">
+        <i class="ri-dashboard-line text-lg"></i> Resumo
+      </a>
+      <a href="#consultas" class="flex items-center gap-3 p-3 rounded-lg hover:bg-teal-600 transition">
+        <i class="ri-calendar-check-line text-lg"></i> Consultas do Dia
+      </a>
+      <a href="#alertas" class="flex items-center gap-3 p-3 rounded-lg hover:bg-teal-600 transition">
+        <i class="ri-alert-line text-lg"></i> Alertas Rápidos
+      </a>
+      <a href="#atalhos" class="flex items-center gap-3 p-3 rounded-lg hover:bg-teal-600 transition">
+        <i class="ri-rocket-line text-lg"></i> Ações Rápidas
+      </a>
+      <a href="#graficos" class="flex items-center gap-3 p-3 rounded-lg hover:bg-teal-600 transition">
+        <i class="ri-bar-chart-line text-lg"></i> Gráficos Rápidos
+      </a>
+      <a href="#notas" class="flex items-center gap-3 p-3 rounded-lg hover:bg-teal-600 transition">
+        <i class="ri-sticky-note-line text-lg"></i> Notas Rápidas
+      </a>
+    </nav>
+    <div class="p-6 border-t border-teal-600 text-xs text-teal-300">
+      © 2025 NutriCorp
+    </div>
+  </aside>
+
+  <!-- Menu Bottom Mobile -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-teal-700 text-teal-100 flex justify-around sm:hidden shadow-t-lg z-50">
+    <a href="#resumo" class="flex flex-col items-center p-2 text-xs font-semibold hover:bg-teal-600 transition">
+      <i class="ri-dashboard-line text-xl"></i>
+      Resumo
+    </a>
+    <a href="#consultas" class="flex flex-col items-center p-2 text-xs font-semibold hover:bg-teal-600 transition">
+      <i class="ri-calendar-check-line text-xl"></i>
+      Consultas
+    </a>
+    <a href="#alertas" class="flex flex-col items-center p-2 text-xs font-semibold hover:bg-teal-600 transition">
+      <i class="ri-alert-line text-xl"></i>
+      Alertas
+    </a>
+    <a href="#atalhos" class="flex flex-col items-center p-2 text-xs font-semibold hover:bg-teal-600 transition">
+      <i class="ri-rocket-line text-xl"></i>
+      Atalhos
+    </a>
+    <a href="#notas" class="flex flex-col items-center p-2 text-xs font-semibold hover:bg-teal-600 transition">
+      <i class="ri-sticky-note-line text-xl"></i>
+      Notas
+    </a>
+  </nav>
+
+  <!-- Conteúdo principal -->
+  <main class="p-10 max-w-7xl">
+
+    <h1 class="text-3xl font-semibold text-teal-700 mb-10">Olá, Dra. Camila 👩‍⚕️</h1>
+
+    <!-- 1. Resumo de Pacientes -->
+    <section id="resumo" class="mb-12 scroll-mt-20">
+      <h2 class="text-2xl font-semibold text-teal-700 mb-6 border-b border-teal-300 pb-2">Resumo de Pacientes</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-3xl shadow-md flex flex-col items-center">
+          <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Pacientes Ativos</h3>
+          <p class="text-4xl font-extrabold text-teal-600">24</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-md flex flex-col items-center">
+          <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Novos na Semana</h3>
+          <p class="text-4xl font-extrabold text-teal-600">5</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-md flex flex-col items-center">
+          <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Próximas Consultas</h3>
+          <p class="text-4xl font-extrabold text-blue-600">8</p>
+          <p class="text-xs text-gray-400 mt-1">Hoje e amanhã</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-md flex flex-col items-center">
+          <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-1">Alertas</h3>
+          <p class="text-4xl font-extrabold text-red-600">3</p>
+          <p class="text-xs text-gray-400 mt-1">Planos pendentes / Retorno</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="consultas" class="mb-12 scroll-mt-20">
+        <h2 class="text-2xl font-semibold text-teal-700 mb-6 border-b border-teal-300 pb-2">Consultas do Dia</h2>
+        <div class="bg-white rounded-3xl shadow-md p-6 space-y-4 max-w-3xl mx-auto">
+      
+          <div class="flex items-center max-w-full">
+            <div class="flex-1">
+              <p class="font-medium text-lg text-gray-700">Ana Souza</p>
+              <p class="text-sm text-gray-500">Status: <span class="text-yellow-500 font-semibold">Agendada</span></p>
+            </div>
+            <div class="w-20 text-center text-gray-500">
+              14:00
+            </div>
+            <div class="flex-1 text-right">
+              <a href="#" class="text-teal-600 font-semibold hover:underline transition">Entrar na chamada</a>
+            </div>
+          </div>
+      
+          <div class="flex items-center max-w-full">
+            <div class="flex-1">
+              <p class="font-medium text-lg text-gray-700">Lucas Pereira</p>
+              <p class="text-sm text-gray-500">Status: <span class="text-green-500 font-semibold">Em andamento</span></p>
+            </div>
+            <div class="w-20 text-center text-gray-500">
+              15:30
+            </div>
+            <div class="flex-1 text-right">
+              <a href="#" class="text-teal-600 font-semibold hover:underline transition">Entrar na chamada</a>
+            </div>
+          </div>
+      
+          <div class="flex items-center max-w-full">
+            <div class="flex-1">
+              <p class="font-medium text-lg text-gray-700">Juliana Dias</p>
+              <p class="text-sm text-gray-500">Status: <span class="text-gray-400 font-semibold">Finalizada</span></p>
+            </div>
+            <div class="w-20 text-center text-gray-500">
+              17:00
+            </div>
+            <div class="flex-1 text-right">
+              <span class="text-gray-300 font-semibold cursor-not-allowed">Chamada encerrada</span>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      
+    <!-- 3. Alertas Rápidos -->
+    <section id="alertas" class="mb-12 scroll-mt-20">
+      <h2 class="text-2xl font-semibold text-teal-700 mb-6 border-b border-teal-300 pb-2">Alertas Rápidos</h2>
+      <ul class="bg-white rounded-3xl shadow-md p-6 max-w-3xl mx-auto space-y-3 list-disc list-inside text-gray-700">
+        <li>Refeições não registradas por 6 pacientes</li>
+        <li>Evolução estagnada em 4 pacientes (últimas 3 semanas)</li>
+        <li>Anexos recentes: 3 exames e 2 fotos adicionados</li>
+      </ul>
+    </section>
+
+    <!-- Accordion para atalhos, gráficos e notas -->
+
+    <section class="max-w-3xl mx-auto space-y-6">
+
+      <!-- Atalhos -->
+      <details class="bg-white rounded-3xl shadow-md p-6">
+        <summary class="cursor-pointer text-xl font-semibold text-teal-700 select-none">
+          <i class="ri-rocket-line align-middle mr-2"></i> Ações Rápidas
+        </summary>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <button class="bg-teal-600 text-white py-4 px-6 rounded-2xl shadow-md hover:bg-teal-700 transition font-semibold">
+            + Novo Paciente
+          </button>
+          <button class="bg-blue-600 text-white py-4 px-6 rounded-2xl shadow-md hover:bg-blue-700 transition font-semibold">
+            + Criar Plano Alimentar
+          </button>
+          <button class="bg-indigo-600 text-white py-4 px-6 rounded-2xl shadow-md hover:bg-indigo-700 transition font-semibold">
+            + Adicionar Consulta
+          </button>
+        </div>
+      </details>
+
+      <!-- Gráficos -->
+      <details class="bg-white rounded-3xl shadow-md p-6">
+        <summary class="cursor-pointer text-xl font-semibold text-teal-700 select-none">
+          <i class="ri-bar-chart-line align-middle mr-2"></i> Gráficos Rápidos
+        </summary>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gray-100 p-6 rounded-3xl shadow-inner flex items-center justify-center text-gray-400 italic h-48">
+            Evolução Geral de Peso (Gráfico)
+          </div>
+          <div class="bg-gray-100 p-6 rounded-3xl shadow-inner flex items-center justify-center text-gray-400 italic h-48">
+            Frequência de Retorno (Gráfico)
+          </div>
+          <div class="bg-gray-100 p-6 rounded-3xl shadow-inner flex items-center justify-center text-gray-400 italic h-48">
+            Adesão ao Plano Alimentar (Gráfico)
+          </div>
+        </div>
+      </details>
+
+      <!-- Notas rápidas -->
+      <details class="bg-white rounded-3xl shadow-md p-6">
+        <summary class="cursor-pointer text-xl font-semibold text-teal-700 select-none">
+          <i class="ri-sticky-note-line align-middle mr-2"></i> Notas Rápidas
+        </summary>
+        <div class="mt-4">
+          <div contenteditable="true" class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg min-h-[150px] shadow-inner" aria-label="Notas rápidas" role="textbox" tabindex="0">
+            📌 Anotar tarefas do dia, retornos, lembretes...
+          </div>
+        </div>
+      </details>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
